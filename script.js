@@ -115,12 +115,12 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (complimentlooks.some(words => message.includes(words)) && firstPersonPronouns.some(i => message.toLowerCase().includes(i))){
           response = "ofcourse, you are 🥰";
         }
-        else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.includes(your))){
+        else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.toLowerCase().includes(your))){
         response = "you're ugly anyway";
         }
-        else if (message.toLowerCase().replace(/\s+/g, "").replace(/'/g, "").includes("idontunderstand")) {
+        else if (message.toLowerCase().replace(/\s+/g, "").replace(/'/g, "").includes("idontunderstand")){
         response = "I'm sorry, I am not skilled enough to understand every text you send because I am just starting this website.";
-      }
+        }
       
       
       
