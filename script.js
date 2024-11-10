@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (complimentlooks.some(words => message.includes(words)) && you.some(your => message.includes(your))){
         response = "Thankyou, that's sweet🥰";
         }
-        else if (complimentlooks.some(words => message.includes(words)) && firstPersonPronoun.some(i => message.toLowerCase().includes(i))){
+        else if (complimentlooks.some(words => message.includes(words)) && firstPersonPronouns.some(i => message.toLowerCase().includes(i))){
           response = "ofcourse, you are 🥰";
         }
         else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.includes(your))){
