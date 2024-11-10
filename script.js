@@ -71,6 +71,15 @@ document.addEventListener('DOMContentLoaded', function() {
   ]
   
     const you = ["You", "you", "Your", "your", "You're", "you're"];
+    const greetings = [
+      "hey", "hi", "hello", "howdy", "yo", "sup", "hola", "bonjour", "aloha", "hiya", 
+      "greetings", "salutations", "what'sup", "wassup", "yo", "how", "morning", "evening", "night"
+    ];
+    const firstPersonPronouns = [
+      "i", "me", "my", "mine", "myself", "we", "our", "ours", "ourselves"
+    ];
+    
+    
     // Function to process the user's message and generate a response
     function processMessage(message) {
       let response = "Sorry, I don't understand that.";
@@ -86,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
             response = "Error evaluating expression", error;
           }
         }
-        else if (message.toLowerCase().includes("hello") || message.toLowerCase().includes("hi")) {
-        response = "Hello! How can I assist you today?";
+      else if (greetings.some(greet => message.toLowerCase().includes(greet))) {
+      response = "hello, how can i assist you today?";
       } else if (message.toLowerCase().includes("your name")) {
         response = "I am your assistant!";
       } else if (message.toLowerCase().includes("how are you")) {
@@ -103,13 +112,23 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (complimentlooks.some(words => message.includes(words)) && you.some(your => message.includes(your))){
         response = "Thankyou, that's sweet🥰";
         }
+        else if (complimentlooks.some(words => message.includes(words)) && firstPersonPronoun.some(i => message.toLowerCase().includes(i))){
+          response = "ofcourse, you are 🥰";
+        }
         else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.includes(your))){
-          response = "you're ugly anyway";
-          }
+        response = "you're ugly anyway";
+        }
+        else if (message.toLowerCase().replace(/\s+/g, "").replace(/'/g, "").includes("idontunderstand")) {
+        response = "I'm sorry, I am not skilled enough to understand every text you send because I am just starting this website.";
+      }
+      
+      
+      
       // Simulate assistant's response after a slight delay
       setTimeout(function() {
         displayMessage(response, 'assistant'); // Display assistant's response in the chat
       }, 1000);
     };
   });
+  
   
