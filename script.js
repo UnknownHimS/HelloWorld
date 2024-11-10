@@ -56,9 +56,25 @@ document.addEventListener('DOMContentLoaded', function() {
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
     const mathexpress = /^[0-9+\-*/().\s]+$/;
+    const complimentlooks = [
+      "gorgeous", "stunning", "radiant", "beautiful", "elegant", "flawless", "breathtaking",
+      "lovely", "alluring", "charming", "graceful", "dazzling", "mesmerizing", "glowing",
+      "attractive", "exquisite", "striking", "picturesque", "fabulous", "angelic",
+      "Gorgeous", "Stunning", "Radiant", "Beautiful", "Elegant", "Flawless", "Breathtaking",
+      "Lovely", "Alluring", "Charming", "Graceful", "Dazzling", "Mesmerizing", "Glowing",
+      "Attractive", "Exquisite", "Striking", "Picturesque", "Fabulous", "Angelic", "Pretty", "pretty", "Handsome", "handsome", "Cool", "cool"
+    ];
+    const toxicwords = [
+      "ugly", "fat", "poor", "stupid", "idiot", "loser", "worthless", "disgusting", "failure", "dumb",
+      "hate", "lazy", "gross", "pathetic", "repulsive", "annoying", "useless", "weak", "helpless",
+      "unattractive", "fatty", "embarrassing", "freak", "loser", "desperate"
+  ]
+  
+    const you = ["You", "you", "Your", "your", "You're", "you're"];
     // Function to process the user's message and generate a response
     function processMessage(message) {
       let response = "Sorry, I don't understand that.";
+      
         
         if(mathexpress.test(message)){
           try{
@@ -76,15 +92,20 @@ document.addEventListener('DOMContentLoaded', function() {
         response = "I am your assistant!";
       } else if (message.toLowerCase().includes("how are you")) {
         response = "I'm just a program, but thanks for asking!";
-      } else if (message.toLowerCase().includes("what is the time")) {
+      } else if (message.toLowerCase().includes("what is the time") || message.toLowerCase().includes("time?")) {
         response = "The current time is " + new Date().toLocaleTimeString();
       } else if (message.toLowerCase().includes("what is your purpose")) {
         response = "I'm here to assist you with basic tasks.";
       } else if (message.toLowerCase().includes("do you") && message.toLowerCase().includes("friends")){
-        response = "Yes, i do have friends their name are Ran, Roy, Jc, Ver, Allen, Hannah, Renalyn, Princess, and etc.";}
+        response = "Yes, i do have friends their name are Ran, Roy, Jc, Ver, Allen, Hannah, Renalyn, Princess, Apple and etc.";}
         else if (message.toLowerCase().includes("are you") && message.toLowerCase().includes("handsome")){
         response = "Nahh Im ugly asf.";}
-        
+        else if (complimentlooks.some(words => message.includes(words)) && you.some(your => message.includes(your))){
+        response = "Thankyou, that's sweet🥰";
+        }
+        else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.includes(your))){
+          response = "you're ugly anyway";
+          }
       // Simulate assistant's response after a slight delay
       setTimeout(function() {
         displayMessage(response, 'assistant'); // Display assistant's response in the chat
