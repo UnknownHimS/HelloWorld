@@ -95,9 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
             response = "Error evaluating expression", error;
           }
         }
-      else if (greetings.some(greet => message.toLowerCase() == greet)) {
-      response = "hello, how can i assist you today?";
-      } else if (message.toLowerCase().includes("your name")) {
+    
+        else if (message.toLowerCase().includes("your name")) {
         response = "I am your assistant!";
       } else if (message.toLowerCase().includes("how are you")) {
         response = "I'm just a program, but thanks for asking!";
@@ -121,6 +120,8 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (message.toLowerCase().replace(/\s+/g, "").replace(/'/g, "").includes("idontunderstand")){
         response = "I'm sorry, I am not skilled enough to understand every text you send because I am just starting this website.";
         }
+          else if (greetings.some(greet => message.toLowerCase() == greet)) {
+      response = "hello, how can i assist you today?";}
       
       
       
