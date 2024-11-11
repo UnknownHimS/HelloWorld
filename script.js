@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
       "unattractive", "fatty", "embarrassing", "freak", "loser", "desperate"
   ]
   
-    const you = ["You", "you", "Your", "your", "You're", "you're"];
+    const you = ["YOU", "YOUR", "YOU'RE"];
     const greetings = [
       "hey", "hi", "hello", "howdy", "yo", "sup", "hola", "bonjour", "aloha", "hiya", 
       "greetings", "salutations", "what'sup", "wassup", "yo", "how", "morning", "evening", "night"
@@ -108,19 +108,19 @@ document.addEventListener('DOMContentLoaded', function() {
         response = "Yes, i do have friends their name are Ran, Roy, Jc, Ver, Allen, Hannah, Renalyn, Princess, Apple and etc.";}
         else if (message.toLowerCase().includes("are you") && message.toLowerCase().includes("handsome")){
         response = "Nahh Im ugly asf.";}
-        else if (complimentlooks.some(words => message.includes(words)) && you.some(your => message.includes(your))){
+        else if (complimentlooks.some(words => message.includes(words)) && you.some(your => message.toUppperCase().includes(your))){
         response = "Thankyou, that's sweet🥰";
         }
         else if (complimentlooks.some(words => message.includes(words)) && firstPersonPronouns.some(i => message.toLowerCase().includes(i))){
           response = "ofcourse, you are 🥰";
         }
-        else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.toLowerCase().includes(your))){
+        else if (toxicwords.some(toxic => message.toLowerCase().includes(toxic)) && you.some(your => message.toUpperCase().includes(your))){
         response = "you're ugly anyway";
         }
         else if (message.toLowerCase().replace(/\s+/g, "").replace(/'/g, "").includes("idontunderstand")){
         response = "I'm sorry, I am not skilled enough to understand every text you send because I am just starting this website.";
         }
-          else if (greetings.some(greet => message.toLowerCase() == greet)) {
+        else if (greetings.some(greet => message.toLowerCase().include(greet))) {
       response = "hello, how can i assist you today?";}
       
       
