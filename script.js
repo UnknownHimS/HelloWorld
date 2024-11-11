@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             response = "Error evaluating expression", error;
           }
         }
-      else if (greetings.some(greet => message.toLowerCase().includes(greet))) {
+      else if (greetings.some(greet => message.toLowerCase() == greet)) {
       response = "hello, how can i assist you today?";
       } else if (message.toLowerCase().includes("your name")) {
         response = "I am your assistant!";
